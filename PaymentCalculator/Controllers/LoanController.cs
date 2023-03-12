@@ -159,11 +159,11 @@ namespace PaymentCalculator.Controllers
 
             return Ok(new PartialPayment
             {
-                Amount = amount,
+                Amount = Math.Round(amount, 2),
                 Details = new List<PartialPaymentDetail>
         {
-            new PartialPaymentDetail { AccountType = AccountType.PREPAID_BASE_DEBT, Amount = baseDebtAmount },
-            new PartialPaymentDetail { AccountType = AccountType.PREPAID_INTEREST, Amount = interestDebtAmount }
+            new PartialPaymentDetail { AccountType = AccountType.PREPAID_BASE_DEBT, Amount = Math.Round(baseDebtAmount, 2) },
+            new PartialPaymentDetail { AccountType = AccountType.PREPAID_INTEREST, Amount = Math.Round(interestDebtAmount, 2) }
         }
             });
         }
